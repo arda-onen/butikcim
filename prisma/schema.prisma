@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+  engineType = "library"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id        Int      @id @default(autoincrement())
+  name      String
+  gender    Gender   @default(KADIN)
+  category  String
+  categoryId Int?
+  categoryRef Category? @relation("CategoryToProduct", fields: [categoryId], references: [id], onDelete: SetNull)
+  price     Int
+  discountPercent Int @default(0)
+  stock     Int
+  rating    Float    @default(4.5)
+  badge     String?
+  imageUrl  String?
+  colorFrom String   @default("from-fuchsia-400")
+  colorTo   String   @default("to-violet-300")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Gender {
+  KADIN
+  ERKEK
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  imageUrl  String?
+  products  Product[] @relation("CategoryToProduct")
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model SiteSettings {
+  id          Int      @id @default(1)
+  heroImageUrl String?
+  updatedAt   DateTime @updatedAt
+}
