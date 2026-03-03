@@ -8,7 +8,7 @@ export default function PaymentSuccessPage() {
       <main className="mx-auto w-full max-w-[900px] px-4 py-12 sm:px-6 sm:py-16">
         <section className="rounded-3xl border border-zinc-200/80 bg-white p-6 text-center shadow-sm sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-600">
-            Iyzico
+            iyzico
           </p>
           <h1 className="mt-2 text-2xl font-black text-zinc-900 sm:text-3xl">Ödeme başarılı</h1>
           <p className="mt-3 text-sm text-zinc-600">

@@ -36,7 +36,7 @@ export default async function AdminLoginPage({
             <ul className="mt-6 space-y-2 text-sm text-white/95">
               <li>- Ürün ekle / güncelle</li>
               <li>- Stok uyarıları</li>
-              <li>- Easygo sipariş adımları</li>
+              <li>- iyzico sipariş adımları</li>
             </ul>
           </div>
 

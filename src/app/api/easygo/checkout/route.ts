@@ -26,10 +26,10 @@ export async function POST(request: Request) {
     );
   }
 
-  // Profile/account yok: Easygo checkout sadece e-posta ile başlar.
+  // Profile/account yok: iyzico checkout sadece e-posta ile başlar.
   return NextResponse.json({
     ok: true,
-    message: "Easygo ödeme oturumu hazırlandı (demo).",
+    message: "iyzico ödeme oturumu hazırlandı (demo).",
     email,
     checkoutUrl: "/odeme/basarili",
   });

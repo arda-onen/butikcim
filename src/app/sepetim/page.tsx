@@ -57,7 +57,7 @@ export default async function CartPage({
                 Sepetim
               </h1>
               <p className="mt-2 text-sm text-[#5f5368]">
-                Sepetine eklenen ürünleri kontrol et, sonra Iyzico ile ödemeye geç.
+                Sepetine eklenen ürünleri kontrol et, sonra iyzico ile ödemeye geç.
               </p>
             </div>
             <div className="rounded-lg bg-gradient-to-r from-[#4b1f42] to-[#8f3c71] px-4 py-2 text-xs font-bold uppercase tracking-[0.1em] text-white sm:py-3 sm:text-sm">
@@ -81,7 +81,7 @@ export default async function CartPage({
           ) : null}
           {params.error === "checkout" ? (
             <p className="mt-3 text-sm font-semibold text-rose-600">
-              Easygo oturumu başlatılırken hata oluştu, tekrar dene.
+              iyzico oturumu başlatılırken hata oluştu, tekrar dene.
             </p>
           ) : null}
         </section>
@@ -142,7 +142,7 @@ export default async function CartPage({
             <aside className="mag-card rounded-3xl p-5">
               <h3 className="mag-heading text-2xl font-bold text-zinc-900">Ödeme Özeti</h3>
               <p className="mt-2 text-sm text-zinc-500">
-                Hesap gerekmez. Easygo ödeme için sadece e-posta girmen yeterli.
+                Hesap gerekmez. iyzico ödeme için sadece e-posta girmen yeterli.
               </p>
               <p className="mt-4 text-2xl font-black text-zinc-900">{total} TL</p>
               <form method="post" action="/api/cart/checkout" className="mt-4 space-y-3">
@@ -154,7 +154,7 @@ export default async function CartPage({
                   className="w-full rounded-xl border border-zinc-300 px-3 py-2 text-sm outline-none ring-rose-200 focus:ring"
                 />
                 <button className="ui-click w-full rounded-xl bg-[#2f1931] px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white hover:bg-[#b54486]">
-                  Ödemeye Geç (Easygo)
+                  Ödemeye Geç (iyzico)
                 </button>
               </form>
             </aside>

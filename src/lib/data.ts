@@ -1,6 +1,6 @@
 export const highlights = [
   "Aynı gün kargo",
   "Kolay iade",
-  "Easygo güvenli ödeme",
+  "iyzico güvenli ödeme",
   "Canlı stok takibi",
 ];

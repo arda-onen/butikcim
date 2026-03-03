@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Butikcim | Trendy Butik",
   description:
-    "Butikcim modern butik deneyimi: renkli tasarım, hızlı sipariş ve Easygo güvenli ödeme.",
+    "Butikcim modern butik deneyimi: renkli tasarım, hızlı sipariş ve iyzico güvenli ödeme.",
 };
 
 export default function RootLayout({

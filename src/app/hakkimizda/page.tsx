@@ -78,7 +78,7 @@ export default function AboutPage() {
             <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
               <StatBadge label="Aktif Kategori" value="10+" />
               <StatBadge label="Mutlu Müşteri" value="2000+" />
-              <StatBadge label="Güvenli Ödeme" value="Easygo" />
+              <StatBadge label="Güvenli Ödeme" value="iyzico" />
             </div>
           </div>
         </section>

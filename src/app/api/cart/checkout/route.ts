@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
     return redirectWithCart(new URL("/sepetim?error=empty", request.url), []);
   }
 
-  const easygoResponse = await fetch(new URL("/api/easygo/checkout", request.url), {
+  const iyzicoResponse = await fetch(new URL("/api/easygo/checkout", request.url), {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -43,12 +43,12 @@ export async function POST(request: NextRequest) {
     cache: "no-store",
   });
 
-  const data = (await easygoResponse.json()) as {
+  const data = (await iyzicoResponse.json()) as {
     ok?: boolean;
     checkoutUrl?: string;
   };
 
-  if (!easygoResponse.ok || !data.ok || !data.checkoutUrl) {
+  if (!iyzicoResponse.ok || !data.ok || !data.checkoutUrl) {
     return redirectWithCart(new URL("/sepetim?error=checkout", request.url));
   }
 
