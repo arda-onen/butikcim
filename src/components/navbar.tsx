@@ -129,10 +129,8 @@ export async function Navbar() {
                 label="Sepet"
                 badge={cartCount > 0 ? String(cartCount) : undefined}
                 href="/sepetim"
-                className="w-auto gap-1.5 px-3 text-xs font-semibold"
               >
                 <CartIcon />
-                <span>Sepet</span>
               </IconButton>
             </div>
           </div>
