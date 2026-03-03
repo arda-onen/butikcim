@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { CART_COOKIE_NAME, parseCartCookie } from "@/lib/cart";
 import { prisma } from "@/lib/prisma";
 import { getDiscountedPrice } from "@/lib/pricing";
+import { MobileNavMenu } from "@/components/mobile-nav-menu";
 import { SearchMenu } from "@/components/search-menu";
 
 const links = [
@@ -72,6 +73,7 @@ export async function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2.5">
+            <MobileNavMenu links={links} />
             <SearchMenu />
             <div className="group relative hidden md:block">
               <IconButton
