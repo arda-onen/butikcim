@@ -57,7 +57,7 @@ export default async function CartPage({
                 Sepetim
               </h1>
               <p className="mt-2 text-sm text-[#5f5368]">
-                Sepetine eklenen ürünleri kontrol et, sonra Easygo ile ödemeye geç.
+                Sepetine eklenen ürünleri kontrol et, sonra Iyzico ile ödemeye geç.
               </p>
             </div>
             <div className="rounded-lg bg-gradient-to-r from-[#4b1f42] to-[#8f3c71] px-4 py-2 text-xs font-bold uppercase tracking-[0.1em] text-white sm:py-3 sm:text-sm">

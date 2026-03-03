@@ -99,7 +99,7 @@ export default async function Home() {
       <main className="pb-16">
         <section className="mx-auto mt-4 w-full max-w-[1320px] px-4 sm:mt-6 sm:px-6">
           <div className="fade-in-up rounded-2xl bg-gradient-to-r from-[#4b1f42] via-[#702f5f] to-[#4b1f42] px-3 py-2 text-center text-[11px] font-semibold tracking-[0.08em] text-white sm:px-4 sm:py-2.5 sm:text-sm sm:tracking-[0.12em]">
-            EDİTÖR SEÇİMİ KADIN KOLEKSİYONUNDA ÖZEL İNDİRİMLER
+            BUTIKCIM SUNAR: PREMIUM KADIN KOLEKSİYONUNDA SUNUMA ÖZEL SEÇKİLER
           </div>
         </section>
 
@@ -111,12 +111,13 @@ export default async function Home() {
                   Butikcim 2026
                 </p>
                 <h1 className="mag-heading mt-3 max-w-2xl text-3xl font-bold leading-[1.08] text-zinc-900 sm:mt-4 sm:text-5xl md:text-[3.85rem]">
-                  Moda Dünyasında
+                  Butikcim ile
                   <br />
-                  Premium ve Trendy Vitrin Deneyimi
+                  Kadın Modasında Premium Vitrin Deneyimi
                 </h1>
                 <p className="mt-4 max-w-xl text-sm text-[#5f5368] sm:mt-5 sm:text-lg">
-                  Premium ve trendy vitrin deneyimi ile moda dünyasına giriş yapın.
+                  Butikcim; modern, zarif ve güçlü parçaları tek vitrinde buluşturarak
+                  kadın modasında ilham veren bir alışveriş deneyimi sunar.
                 </p>
                 <div className="mt-6 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-3">
                   <Link
@@ -159,7 +160,7 @@ export default async function Home() {
                 Kategori Vitrini
               </p>
               <h2 className="mag-heading mt-1 text-3xl font-bold text-zinc-900 sm:text-4xl">
-                Kategorileri Keşfet
+                Butikcim Kategorilerini Keşfet
               </h2>
             </div>
             <Link
@@ -208,7 +209,7 @@ export default async function Home() {
                   İndirimler
                 </p>
                 <h2 className="mag-heading mt-1 text-3xl font-bold text-zinc-900 sm:text-4xl">
-                  Fırsatları Keşfet
+                  Butikcim Fırsatlarını Keşfet
                 </h2>
               </div>
             </div>
@@ -254,7 +255,7 @@ export default async function Home() {
                 Öne Çıkan Ürünler
               </p>
               <h2 className="mag-heading mt-1 text-3xl font-bold text-zinc-900 sm:text-4xl">
-                Stilini Öne Çıkaracak Seçimler
+                Sunumun Yıldızı Olacak Butikcim Seçimleri
               </h2>
             </div>
             <Link
@@ -288,8 +289,8 @@ export default async function Home() {
                 </p>
                 <p className="mag-heading mt-2 text-3xl font-bold">BUTIKCIM</p>
                 <p className="mt-3 max-w-md text-sm text-white/80">
-                  Kadın odaklı premium butik deneyimi. Kategoriler, indirimler ve
-                  modern vitrin dili ile stilini güçlendir.
+                  Butikcim, kadın odaklı premium butik deneyimini modern vitrin dili,
+                  güçlü kategori yapısı ve seçili koleksiyonlarla bir araya getirir.
                 </p>
               </div>
               <div>
