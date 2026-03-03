@@ -79,7 +79,7 @@ export async function Navbar() {
             <SearchMenu />
             <div className="group relative hidden md:block">
               <IconButton
-                label="Sepet"
+                label=""
                 badge={cartCount > 0 ? String(cartCount) : undefined}
                 href="/sepetim"
               >
