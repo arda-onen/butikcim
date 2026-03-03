@@ -42,48 +42,48 @@ export default async function ProductsPage({
     <div className="min-h-screen">
       <Navbar />
 
-      <main className="mx-auto w-full max-w-[1320px] space-y-5 px-4 py-6 sm:space-y-8 sm:px-6 sm:py-10">
-        <section className="mag-card rounded-3xl p-4 sm:p-6">
-          <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+      <main className="mx-auto w-full max-w-[1320px] space-y-4 px-4 py-5 sm:space-y-8 sm:px-6 sm:py-10">
+        <section className="mag-card rounded-2xl p-3.5 sm:rounded-3xl sm:p-6">
+          <div className="grid gap-2.5 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <p className="mag-heading text-xs font-semibold uppercase tracking-[0.2em] text-[#8d6581]">
+              <p className="mag-heading text-[10px] font-semibold uppercase tracking-[0.14em] text-[#8d6581] sm:text-xs sm:tracking-[0.2em]">
                 Butikcim Woman
               </p>
-              <h1 className="mag-heading mt-1 text-2xl font-bold text-zinc-900 sm:text-5xl">
+              <h1 className="mag-heading mt-0.5 text-xl font-bold text-zinc-900 sm:mt-1 sm:text-5xl">
                 Kadın Koleksiyonu
               </h1>
-              <p className="mt-2 text-xs text-[#5f5368] sm:text-sm">
+              <p className="mt-1 hidden text-xs text-[#5f5368] sm:block sm:text-sm">
                 Arama, kategori ve indirim filtresiyle stiline uygun parçayı hızla seç.
               </p>
             </div>
-            <div className="rounded-xl bg-gradient-to-r from-[#59254d] to-[#8f3c71] px-4 py-2.5 text-xs font-bold uppercase tracking-[0.1em] text-white sm:py-3 sm:text-sm sm:tracking-[0.12em]">
+            <div className="w-fit rounded-lg bg-gradient-to-r from-[#59254d] to-[#8f3c71] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-white sm:rounded-xl sm:px-4 sm:py-3 sm:text-sm sm:tracking-[0.12em]">
               {filteredProducts.length} ürün listelendi
             </div>
           </div>
         </section>
 
-        <section className="mag-card rounded-3xl p-3.5 sm:p-5">
+        <section className="mag-card rounded-2xl p-3 sm:rounded-3xl sm:p-5">
           <form
             method="get"
             action="/urunler"
-            className="grid gap-2.5 md:grid-cols-[1.4fr_1fr_1fr_auto_auto]"
+            className="grid gap-2 md:grid-cols-[1.4fr_1fr_1fr_auto_auto]"
           >
-            <label className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">
+            <label className="text-[11px] font-semibold uppercase tracking-[0.1em] text-zinc-500 sm:text-xs sm:tracking-[0.14em]">
               Ürün Ara
               <input
                 name="q"
                 defaultValue={query}
                 placeholder="Örn: Elbise, Triko..."
-                className="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm font-medium text-zinc-700 outline-none ring-fuchsia-200 focus:ring"
+                className="mt-1 w-full rounded-lg border border-zinc-300 bg-white px-2.5 py-1.5 text-xs font-medium text-zinc-700 outline-none ring-fuchsia-200 focus:ring sm:rounded-xl sm:px-3 sm:py-2 sm:text-sm"
               />
             </label>
 
-            <label className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">
+            <label className="text-[11px] font-semibold uppercase tracking-[0.1em] text-zinc-500 sm:text-xs sm:tracking-[0.14em]">
               Kategori
               <select
                 name="kategori"
                 defaultValue={selectedCategory}
-                className="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm font-medium text-zinc-700 outline-none ring-fuchsia-200 focus:ring"
+                className="mt-1 w-full rounded-lg border border-zinc-300 bg-white px-2.5 py-1.5 text-xs font-medium text-zinc-700 outline-none ring-fuchsia-200 focus:ring sm:rounded-xl sm:px-3 sm:py-2 sm:text-sm"
               >
                 <option value="">Tüm kategoriler</option>
                 {categories.map((category) => (
@@ -94,12 +94,12 @@ export default async function ProductsPage({
               </select>
             </label>
 
-            <label className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">
+            <label className="text-[11px] font-semibold uppercase tracking-[0.1em] text-zinc-500 sm:text-xs sm:tracking-[0.14em]">
               İndirim
               <select
                 name="indirim"
                 defaultValue={selectedDiscount}
-                className="mt-1 w-full rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm font-medium text-zinc-700 outline-none ring-fuchsia-200 focus:ring"
+                className="mt-1 w-full rounded-lg border border-zinc-300 bg-white px-2.5 py-1.5 text-xs font-medium text-zinc-700 outline-none ring-fuchsia-200 focus:ring sm:rounded-xl sm:px-3 sm:py-2 sm:text-sm"
               >
                 <option value="">Tüm ürünler</option>
                 <option value="1">Sadece indirimdekiler</option>
@@ -109,14 +109,14 @@ export default async function ProductsPage({
             <div className="grid grid-cols-2 gap-2 md:contents">
               <button
                 type="submit"
-                className="ui-click rounded-xl bg-[#2f1931] px-4 py-2 text-sm font-semibold text-white hover:bg-[#b54486] md:self-end"
+                className="ui-click rounded-lg bg-[#2f1931] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#b54486] sm:rounded-xl sm:px-4 sm:py-2 sm:text-sm md:self-end"
               >
                 Filtrele
               </button>
 
               <Link
                 href="/urunler"
-                className="ui-click rounded-xl border border-zinc-300 bg-white px-4 py-2 text-center text-sm font-semibold text-zinc-700 hover:border-[#b54486] hover:text-[#b54486] md:self-end"
+                className="ui-click rounded-lg border border-zinc-300 bg-white px-3 py-1.5 text-center text-xs font-semibold text-zinc-700 hover:border-[#b54486] hover:text-[#b54486] sm:rounded-xl sm:px-4 sm:py-2 sm:text-sm md:self-end"
               >
                 Temizle
               </Link>
