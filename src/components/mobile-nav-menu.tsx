@@ -10,11 +10,10 @@ type MobileNavMenuProps = {
 export function MobileNavMenu({ links, className }: MobileNavMenuProps) {
   return (
     <details className={`relative md:hidden ${className ?? ""}`}>
-      <summary className="ui-click relative inline-flex h-10 list-none items-center justify-center gap-1.5 rounded-xl border border-zinc-200 bg-white/90 px-3 text-xs font-semibold text-zinc-700 shadow-sm marker:content-[''] hover:border-zinc-300 hover:text-[#b54486]">
+      <summary className="ui-click relative inline-flex h-10 w-10 list-none items-center justify-center rounded-xl border border-zinc-200 bg-white/90 text-zinc-700 shadow-sm marker:content-[''] hover:border-zinc-300 hover:text-[#b54486]">
         <MenuIcon />
-        <span>Menü</span>
       </summary>
-      <div className="absolute right-0 top-[calc(100%+10px)] z-50 w-64 rounded-2xl border border-zinc-200 bg-white/95 p-2.5 shadow-xl">
+      <div className="absolute left-0 top-[calc(100%+10px)] z-50 w-64 rounded-2xl border border-zinc-200 bg-white/95 p-2.5 shadow-xl">
         <p className="px-2 pb-1 text-[11px] font-bold uppercase tracking-[0.12em] text-zinc-500">
           Hızlı Gezinme
         </p>

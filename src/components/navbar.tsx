@@ -50,14 +50,17 @@ export async function Navbar() {
       </div>
       <nav className="border-b border-white/80 bg-white/75 backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between px-4 py-4 sm:px-6">
-          <Link href="/" className="ui-click">
-            <p className="mag-heading text-[11px] font-bold uppercase tracking-[0.24em] text-[#8d6581]">
-              Butikcim Woman
-            </p>
-            <p className="mag-heading -mt-0.5 text-3xl font-bold tracking-tight text-zinc-900">
-              BUTIK<span className="text-[#b54486]">CIM</span>
-            </p>
-          </Link>
+          <div className="flex items-center gap-2">
+            <MobileNavMenu links={links} />
+            <Link href="/" className="ui-click">
+              <p className="mag-heading text-[9px] font-bold uppercase tracking-[0.18em] text-[#8d6581] sm:text-[11px] sm:tracking-[0.24em]">
+                Butikcim Woman
+              </p>
+              <p className="mag-heading -mt-0.5 text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
+                BUTIK<span className="text-[#b54486]">CIM</span>
+              </p>
+            </Link>
+          </div>
 
           <ul className="hidden items-center gap-7 md:flex">
             {links.map((link) => (
@@ -73,7 +76,6 @@ export async function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2.5">
-            <MobileNavMenu links={links} />
             <SearchMenu />
             <div className="group relative hidden md:block">
               <IconButton
