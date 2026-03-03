@@ -5,12 +5,12 @@ export default function ContactPage() {
     <div className="min-h-screen">
       <Navbar />
 
-      <main className="mx-auto w-full max-w-[1320px] space-y-8 px-4 py-10 sm:px-6">
-        <section className="fade-in-up mag-card rounded-[2rem] p-8 sm:p-10">
+      <main className="mx-auto w-full max-w-[1320px] space-y-6 px-4 py-8 sm:space-y-8 sm:px-6 sm:py-10">
+        <section className="fade-in-up mag-card rounded-[2rem] p-6 sm:p-10">
           <p className="mag-heading text-xs font-semibold uppercase tracking-[0.2em] text-[#8d6581]">
             Butikcim Woman
           </p>
-          <h1 className="mag-heading mt-3 text-4xl font-bold text-zinc-900 sm:text-5xl">
+          <h1 className="mag-heading mt-3 text-3xl font-bold text-zinc-900 sm:text-5xl">
             İletişim
           </h1>
           <p className="mt-4 max-w-3xl text-base text-[#5f5368] sm:text-lg">
@@ -20,7 +20,7 @@ export default function ContactPage() {
         </section>
 
         <section className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
-          <article className="fade-in-up mag-card rounded-3xl p-6">
+          <article className="fade-in-up mag-card rounded-3xl p-5 sm:p-6">
             <h2 className="mag-heading text-2xl font-bold text-zinc-900">İletişim Bilgileri</h2>
             <div className="mt-5 space-y-4 text-sm text-zinc-600">
               <div className="rounded-2xl border border-zinc-100 bg-white/70 p-4">
@@ -50,7 +50,7 @@ export default function ContactPage() {
             </div>
           </article>
 
-          <article className="fade-in-up mag-card rounded-3xl p-6">
+          <article className="fade-in-up mag-card rounded-3xl p-5 sm:p-6">
             <h2 className="mag-heading text-2xl font-bold text-zinc-900">Mesaj Gönder</h2>
             <p className="mt-2 text-sm text-zinc-600">
               Formu doldur, ekibimiz en kısa sürede sana dönüş yapsın.

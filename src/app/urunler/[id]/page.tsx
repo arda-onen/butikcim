@@ -33,7 +33,7 @@ export default async function ProductDetailPage({
     <div className="min-h-screen">
       <Navbar />
 
-      <main className="mx-auto w-full max-w-[1320px] space-y-6 px-4 py-10 sm:px-6">
+      <main className="mx-auto w-full max-w-[1320px] space-y-5 px-4 py-8 sm:space-y-6 sm:px-6 sm:py-10">
         <Link
           href="/urunler"
           className="ui-click inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-700 hover:border-[#b54486] hover:text-[#b54486]"
@@ -41,8 +41,8 @@ export default async function ProductDetailPage({
           ← Ürünlere Dön
         </Link>
 
-        <section className="mag-card grid gap-8 rounded-3xl p-6 md:grid-cols-2">
-          <div className="relative min-h-[500px] overflow-hidden rounded-2xl bg-zinc-100">
+        <section className="mag-card grid gap-6 rounded-3xl p-4 sm:p-6 md:grid-cols-2 md:gap-8">
+          <div className="relative min-h-[320px] overflow-hidden rounded-2xl bg-zinc-100 sm:min-h-[500px]">
             {product.imageUrl ? (
               <Image
                 src={product.imageUrl}
@@ -57,7 +57,7 @@ export default async function ProductDetailPage({
           </div>
 
           <div className="space-y-5">
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-700">
                 {product.category}
               </span>
@@ -71,7 +71,7 @@ export default async function ProductDetailPage({
               ) : null}
             </div>
 
-            <h1 className="mag-heading text-4xl font-bold leading-tight text-zinc-900 md:text-5xl">
+            <h1 className="mag-heading text-3xl font-bold leading-tight text-zinc-900 sm:text-4xl md:text-5xl">
               {product.name}
             </h1>
 
@@ -92,7 +92,7 @@ export default async function ProductDetailPage({
                   <p className="text-sm font-semibold text-zinc-400 line-through">
                     {priced.originalPrice} TL
                   </p>
-                  <p className="text-4xl font-black text-zinc-900">
+                  <p className="text-3xl font-black text-zinc-900 sm:text-4xl">
                     {priced.finalPrice} TL
                   </p>
                   <p className="mt-1 text-xs font-semibold uppercase tracking-[0.1em] text-[#a2486e]">
@@ -100,7 +100,7 @@ export default async function ProductDetailPage({
                   </p>
                 </>
               ) : (
-                <p className="text-4xl font-black text-zinc-900">{product.price} TL</p>
+                <p className="text-3xl font-black text-zinc-900 sm:text-4xl">{product.price} TL</p>
               )}
             </div>
 
@@ -108,18 +108,18 @@ export default async function ProductDetailPage({
               Stok: <span className="font-bold text-zinc-900">{product.stock}</span>
             </p>
 
-            <div className="flex flex-wrap gap-3 pt-1">
+            <div className="grid gap-2 pt-1 sm:flex sm:flex-wrap sm:gap-3">
               <form method="post" action="/api/cart/add">
                 <input type="hidden" name="productId" value={product.id} />
                 <input type="hidden" name="quantity" value="1" />
                 <input type="hidden" name="returnTo" value="/sepetim" />
-                <button className="ui-click rounded-xl bg-[#2f1931] px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white hover:bg-[#b54486]">
+                <button className="ui-click w-full rounded-xl bg-[#2f1931] px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white hover:bg-[#b54486] sm:w-auto">
                   Sepete Ekle
                 </button>
               </form>
               <Link
                 href="/sepetim"
-                className="ui-click rounded-xl border border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-700 hover:border-[#b54486] hover:text-[#b54486]"
+                className="ui-click rounded-xl border border-zinc-300 bg-white px-6 py-3 text-center text-sm font-semibold text-zinc-700 hover:border-[#b54486] hover:text-[#b54486]"
               >
                 Sepetime Git
               </Link>

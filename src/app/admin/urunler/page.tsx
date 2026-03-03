@@ -34,14 +34,14 @@ export default async function AdminProductsPage({
     <div className="min-h-screen">
       <Navbar />
 
-      <main className="mx-auto w-full max-w-6xl space-y-8 px-4 py-10 sm:px-6">
-        <section className="fade-in-up mag-card rounded-3xl p-6">
+      <main className="mx-auto w-full max-w-6xl space-y-6 px-4 py-8 sm:space-y-8 sm:px-6 sm:py-10">
+        <section className="fade-in-up mag-card rounded-3xl p-5 sm:p-6">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <p className="mag-heading text-sm font-semibold uppercase tracking-[0.16em] text-[#b54486]">
                 Admin
               </p>
-              <h1 className="mag-heading mt-1 text-4xl font-bold text-zinc-900">
+              <h1 className="mag-heading mt-1 text-3xl font-bold text-zinc-900 sm:text-4xl">
                 Ürün Yönetimi
               </h1>
               <p className="mt-2 text-sm text-zinc-600">
@@ -57,7 +57,7 @@ export default async function AdminProductsPage({
           </div>
         </section>
 
-        <section className="fade-in-up mag-card rounded-3xl p-5">
+        <section className="fade-in-up mag-card rounded-3xl p-4 sm:p-5">
           <h2 className="text-lg font-bold text-zinc-900">
             {editingProduct ? "Ürünü Düzenle" : "Yeni Ürün Ekle"}
           </h2>
@@ -187,14 +187,14 @@ export default async function AdminProductsPage({
                 className="mt-1 w-full rounded-xl border border-dashed border-zinc-300 px-3 py-2 text-sm"
               />
             </label>
-            <div className="flex items-center gap-3 md:col-span-2">
+            <div className="grid gap-2 md:col-span-2 md:flex md:items-center md:gap-3">
               <button className="ui-click rounded-xl bg-[#2f1931] px-5 py-3 text-sm font-semibold text-white hover:bg-[#b54486]">
                 {editingProduct ? "Değişiklikleri Kaydet" : "Ürünü Kaydet"}
               </button>
               {editingProduct ? (
                 <Link
                   href={redirectTo}
-                  className="ui-click rounded-xl border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700"
+                  className="ui-click rounded-xl border border-zinc-200 bg-white px-5 py-3 text-center text-sm font-semibold text-zinc-700"
                 >
                   İptal
                 </Link>

@@ -21,12 +21,12 @@ export default function AboutPage() {
     <div className="min-h-screen">
       <Navbar />
 
-      <main className="mx-auto w-full max-w-[1320px] space-y-8 px-4 py-10 sm:px-6">
-        <section className="fade-in-up mag-card rounded-[2rem] p-8 sm:p-10">
+      <main className="mx-auto w-full max-w-[1320px] space-y-6 px-4 py-8 sm:space-y-8 sm:px-6 sm:py-10">
+        <section className="fade-in-up mag-card rounded-[2rem] p-6 sm:p-10">
           <p className="mag-heading text-xs font-semibold uppercase tracking-[0.2em] text-[#8d6581]">
             Butikcim Woman
           </p>
-          <h1 className="mag-heading mt-3 text-4xl font-bold text-zinc-900 sm:text-5xl">
+          <h1 className="mag-heading mt-3 text-3xl font-bold text-zinc-900 sm:text-5xl">
             Hakkımızda
           </h1>
           <p className="mt-4 max-w-3xl text-base text-[#5f5368] sm:text-lg">
@@ -34,16 +34,16 @@ export default function AboutPage() {
             Amacımız yalnızca ürün satmak değil; stil ilhamı veren, güvenli ödeme sunan ve
             premium hissettiren bir deneyim oluşturmaktır.
           </p>
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-7 grid gap-2 sm:flex sm:flex-wrap sm:gap-3">
             <Link
               href="/urunler"
-              className="ui-click rounded-xl bg-[#2f1931] px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white hover:bg-[#b54486]"
+              className="ui-click rounded-xl bg-[#2f1931] px-6 py-3 text-center text-sm font-bold uppercase tracking-[0.12em] text-white hover:bg-[#b54486]"
             >
               Koleksiyonu Keşfet
             </Link>
             <Link
               href="/iletisim"
-              className="ui-click rounded-xl border border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-700 hover:border-[#b54486] hover:text-[#b54486]"
+              className="ui-click rounded-xl border border-zinc-300 bg-white px-6 py-3 text-center text-sm font-semibold text-zinc-700 hover:border-[#b54486] hover:text-[#b54486]"
             >
               Bizimle İletişime Geç
             </Link>

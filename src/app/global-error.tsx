@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function GlobalError({
   error,
   reset,
@@ -34,12 +36,12 @@ export default function GlobalError({
               >
                 Tekrar Dene
               </button>
-              <a
+              <Link
                 href="/"
                 className="ui-click rounded-xl border border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-700 hover:border-[#b54486] hover:text-[#b54486]"
               >
                 Ana Sayfaya Dön
-              </a>
+              </Link>
             </div>
           </section>
         </main>

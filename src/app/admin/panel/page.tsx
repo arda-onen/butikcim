@@ -35,14 +35,14 @@ export default async function AdminPanelPage({
     <div className="min-h-screen">
       <Navbar />
 
-      <main className="mx-auto w-full max-w-6xl space-y-8 px-4 py-10 sm:px-6">
-        <section className="fade-in-up mag-card rounded-3xl p-6">
+      <main className="mx-auto w-full max-w-6xl space-y-6 px-4 py-8 sm:space-y-8 sm:px-6 sm:py-10">
+        <section className="fade-in-up mag-card rounded-3xl p-5 sm:p-6">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <p className="mag-heading text-sm font-semibold uppercase tracking-[0.16em] text-[#b54486]">
                 Admin Dashboard
               </p>
-              <h1 className="mag-heading mt-1 text-4xl font-bold text-zinc-900">
+              <h1 className="mag-heading mt-1 text-3xl font-bold text-zinc-900 sm:text-4xl">
                 Butikcim Panel
               </h1>
               <p className="mt-3 text-zinc-600">
@@ -68,7 +68,7 @@ export default async function AdminPanelPage({
           <StatCard label="Stok Değeri" value={`${totalValue} TL`} />
         </section>
 
-        <section className="fade-in-up mag-card rounded-3xl p-5">
+        <section className="fade-in-up mag-card rounded-3xl p-4 sm:p-5">
           <h2 className="text-lg font-bold text-zinc-900">Ana Sayfa Hero Görseli</h2>
           <p className="mt-1 text-sm text-zinc-500">
             Hero alanı için doğrudan görsel yükleyebilirsin. Yüklendiğinde ana sayfada
@@ -111,7 +111,7 @@ export default async function AdminPanelPage({
               method="post"
               action="/api/admin/appearance/hero"
               encType="multipart/form-data"
-              className="grid gap-2 sm:grid-cols-[1fr_auto]"
+              className="grid gap-2 md:grid-cols-[1fr_auto]"
             >
               <input
                 type="file"
@@ -127,7 +127,7 @@ export default async function AdminPanelPage({
           </div>
         </section>
 
-        <section className="fade-in-up mag-card rounded-3xl p-5">
+        <section className="fade-in-up mag-card rounded-3xl p-4 sm:p-5">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-4">
             <div>
               <h2 className="text-lg font-bold text-zinc-900">Yönetim Kısayolları</h2>
@@ -158,7 +158,7 @@ export default async function AdminPanelPage({
           </div>
         </section>
 
-        <section className="fade-in-up mag-card rounded-3xl p-5">
+        <section className="fade-in-up mag-card rounded-3xl p-4 sm:p-5">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <h2 className="text-lg font-bold text-zinc-900">Hızlı Geçiş</h2>

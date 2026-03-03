@@ -50,14 +50,14 @@ export default async function AdminDiscountPage({
     <div className="min-h-screen">
       <Navbar />
 
-      <main className="mx-auto w-full max-w-6xl space-y-6 px-4 py-10 sm:px-6">
-        <section className="fade-in-up mag-card rounded-3xl p-6">
+      <main className="mx-auto w-full max-w-6xl space-y-6 px-4 py-8 sm:px-6 sm:py-10">
+        <section className="fade-in-up mag-card rounded-3xl p-5 sm:p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <p className="mag-heading text-sm font-semibold uppercase tracking-[0.16em] text-[#b54486]">
                 Admin
               </p>
-              <h1 className="mag-heading mt-1 text-4xl font-bold text-zinc-900">
+              <h1 className="mag-heading mt-1 text-3xl font-bold text-zinc-900 sm:text-4xl">
                 İndirim Yönetimi
               </h1>
               <p className="mt-2 text-sm text-zinc-600">
@@ -73,7 +73,7 @@ export default async function AdminDiscountPage({
           </div>
         </section>
 
-        <section className="fade-in-up mag-card rounded-3xl p-5">
+        <section className="fade-in-up mag-card rounded-3xl p-4 sm:p-5">
           <form
             method="get"
             action="/admin/indirimler"
@@ -103,19 +103,21 @@ export default async function AdminDiscountPage({
                 className="mt-1 w-full rounded-xl border border-zinc-200 px-3 py-2 text-sm outline-none ring-fuchsia-200 focus:ring"
               />
             </label>
-            <button className="ui-click rounded-xl bg-[#2f1931] px-4 py-2 text-sm font-semibold text-white hover:bg-[#b54486] md:self-end">
-              Filtrele
-            </button>
-            <Link
-              href="/admin/indirimler"
-              className="ui-click rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2 text-center text-sm font-semibold text-zinc-600 md:self-end"
-            >
-              Sıfırla
-            </Link>
+            <div className="grid grid-cols-2 gap-2 md:contents">
+              <button className="ui-click rounded-xl bg-[#2f1931] px-4 py-2 text-sm font-semibold text-white hover:bg-[#b54486] md:self-end">
+                Filtrele
+              </button>
+              <Link
+                href="/admin/indirimler"
+                className="ui-click rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2 text-center text-sm font-semibold text-zinc-600 md:self-end"
+              >
+                Sıfırla
+              </Link>
+            </div>
           </form>
         </section>
 
-        <section className="fade-in-up mag-card rounded-3xl p-5">
+        <section className="fade-in-up mag-card rounded-3xl p-4 sm:p-5">
           {params.discount_updated ? (
             <div className="ui-alert ui-alert-success mb-4">
               İndirim güncellendi ({params.discount_count ?? "0"} ürün).

@@ -42,27 +42,27 @@ export default async function ProductsPage({
     <div className="min-h-screen">
       <Navbar />
 
-      <main className="mx-auto w-full max-w-[1320px] space-y-8 px-4 py-10 sm:px-6">
-        <section className="mag-card rounded-3xl p-6">
+      <main className="mx-auto w-full max-w-[1320px] space-y-6 px-4 py-8 sm:space-y-8 sm:px-6 sm:py-10">
+        <section className="mag-card rounded-3xl p-5 sm:p-6">
           <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
             <div>
               <p className="mag-heading text-xs font-semibold uppercase tracking-[0.2em] text-[#8d6581]">
                 Butikcim Woman
               </p>
-              <h1 className="mag-heading mt-1 text-4xl font-bold text-zinc-900 sm:text-5xl">
+              <h1 className="mag-heading mt-1 text-3xl font-bold text-zinc-900 sm:text-5xl">
                 Kadın Koleksiyonu
               </h1>
               <p className="mt-2 text-sm text-[#5f5368]">
                 Arama, kategori ve indirim filtresiyle stiline uygun parçayı hızla seç.
               </p>
             </div>
-            <div className="rounded-xl bg-gradient-to-r from-[#59254d] to-[#8f3c71] px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white">
+            <div className="rounded-xl bg-gradient-to-r from-[#59254d] to-[#8f3c71] px-4 py-2.5 text-xs font-bold uppercase tracking-[0.1em] text-white sm:py-3 sm:text-sm sm:tracking-[0.12em]">
               {filteredProducts.length} ürün listelendi
             </div>
           </div>
         </section>
 
-        <section className="mag-card rounded-3xl p-5">
+        <section className="mag-card rounded-3xl p-4 sm:p-5">
           <form
             method="get"
             action="/urunler"
@@ -106,19 +106,21 @@ export default async function ProductsPage({
               </select>
             </label>
 
-            <button
-              type="submit"
-              className="ui-click rounded-xl bg-[#2f1931] px-4 py-2 text-sm font-semibold text-white hover:bg-[#b54486] md:self-end"
-            >
-              Filtrele
-            </button>
+            <div className="grid grid-cols-2 gap-2 md:contents">
+              <button
+                type="submit"
+                className="ui-click rounded-xl bg-[#2f1931] px-4 py-2 text-sm font-semibold text-white hover:bg-[#b54486] md:self-end"
+              >
+                Filtrele
+              </button>
 
-            <Link
-              href="/urunler"
-              className="ui-click rounded-xl border border-zinc-300 bg-white px-4 py-2 text-center text-sm font-semibold text-zinc-700 hover:border-[#b54486] hover:text-[#b54486] md:self-end"
-            >
-              Temizle
-            </Link>
+              <Link
+                href="/urunler"
+                className="ui-click rounded-xl border border-zinc-300 bg-white px-4 py-2 text-center text-sm font-semibold text-zinc-700 hover:border-[#b54486] hover:text-[#b54486] md:self-end"
+              >
+                Temizle
+              </Link>
+            </div>
           </form>
           {(query || selectedCategory || selectedDiscount) && (
             <p className="mt-3 text-xs text-zinc-500">

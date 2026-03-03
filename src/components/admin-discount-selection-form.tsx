@@ -40,7 +40,7 @@ export function AdminDiscountSelectionForm({
       <input type="hidden" name="redirectTo" value={redirectTo} />
 
       <div className="flex flex-wrap items-end justify-between gap-3">
-        <div className="flex flex-wrap items-end gap-3">
+        <div className="grid w-full gap-2 sm:flex sm:w-auto sm:flex-wrap sm:items-end sm:gap-3">
           <label className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
             Uygulanacak İndirim (%)
             <input
@@ -50,7 +50,7 @@ export function AdminDiscountSelectionForm({
               max="90"
               name="discountPercent"
               placeholder="Örn: 20"
-              className="mt-1 w-52 rounded-xl border border-zinc-200 px-3 py-2 text-sm outline-none ring-fuchsia-200 focus:ring"
+              className="mt-1 w-full rounded-xl border border-zinc-200 px-3 py-2 text-sm outline-none ring-fuchsia-200 focus:ring sm:w-52"
             />
           </label>
           <button className="ui-click rounded-xl bg-[#2f1931] px-5 py-3 text-sm font-semibold text-white hover:bg-[#b54486] disabled:cursor-not-allowed disabled:opacity-60">

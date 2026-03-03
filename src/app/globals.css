@@ -23,6 +23,7 @@ body {
   font-family: "Segoe UI", "Inter", Arial, Helvetica, sans-serif;
   line-height: 1.55;
   letter-spacing: 0.01em;
+  overflow-x: hidden;
 }
 
 ::selection {

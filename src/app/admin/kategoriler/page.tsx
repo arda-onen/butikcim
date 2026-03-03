@@ -24,14 +24,14 @@ export default async function AdminCategoriesPage({
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main className="mx-auto w-full max-w-6xl space-y-8 px-4 py-10 sm:px-6">
-        <section className="fade-in-up mag-card rounded-3xl p-6">
+      <main className="mx-auto w-full max-w-6xl space-y-6 px-4 py-8 sm:space-y-8 sm:px-6 sm:py-10">
+        <section className="fade-in-up mag-card rounded-3xl p-5 sm:p-6">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <p className="mag-heading text-sm font-semibold uppercase tracking-[0.16em] text-[#b54486]">
                 Admin
               </p>
-              <h1 className="mag-heading mt-1 text-4xl font-bold text-zinc-900">
+              <h1 className="mag-heading mt-1 text-3xl font-bold text-zinc-900 sm:text-4xl">
                 Kategori Yönetimi
               </h1>
               <p className="mt-2 text-sm text-zinc-600">
@@ -47,7 +47,7 @@ export default async function AdminCategoriesPage({
           </div>
         </section>
 
-        <section className="fade-in-up mag-card rounded-3xl p-5">
+        <section className="fade-in-up mag-card rounded-3xl p-4 sm:p-5">
           {params.category_created ? (
             <div className="ui-alert ui-alert-success mt-1">Kategori eklendi.</div>
           ) : null}
@@ -97,7 +97,7 @@ export default async function AdminCategoriesPage({
           </form>
         </section>
 
-        <section className="fade-in-up mag-card rounded-3xl p-5">
+        <section className="fade-in-up mag-card rounded-3xl p-4 sm:p-5">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {categories.map((category) => (
               <div key={category.id} className="rounded-xl border border-zinc-200 bg-zinc-50 p-3">
@@ -122,7 +122,7 @@ export default async function AdminCategoriesPage({
                   method="post"
                   action={`/api/admin/categories/${category.id}`}
                   encType="multipart/form-data"
-                  className="mb-2 flex items-center gap-2"
+                className="mb-2 grid gap-2 sm:flex sm:items-center"
                 >
                   <input type="hidden" name="intent" value="update_image" />
                   <input type="hidden" name="redirectTo" value={redirectTo} />

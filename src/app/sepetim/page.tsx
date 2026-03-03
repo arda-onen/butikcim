@@ -46,21 +46,21 @@ export default async function CartPage({
     <div className="min-h-screen">
       <Navbar />
 
-      <main className="mx-auto w-full max-w-[1320px] space-y-6 px-4 py-10 sm:px-6">
-        <section className="mag-card rounded-3xl p-6">
+      <main className="mx-auto w-full max-w-[1320px] space-y-5 px-4 py-8 sm:space-y-6 sm:px-6 sm:py-10">
+        <section className="mag-card rounded-3xl p-5 sm:p-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="mag-heading text-xs font-semibold uppercase tracking-[0.2em] text-[#8d6581]">
                 Butikcim Checkout
               </p>
-              <h1 className="mag-heading mt-1 text-3xl font-bold text-zinc-900 sm:text-4xl">
+              <h1 className="mag-heading mt-1 text-2xl font-bold text-zinc-900 sm:text-4xl">
                 Sepetim
               </h1>
               <p className="mt-2 text-sm text-[#5f5368]">
                 Sepetine eklenen ürünleri kontrol et, sonra Easygo ile ödemeye geç.
               </p>
             </div>
-            <div className="rounded-lg bg-gradient-to-r from-[#4b1f42] to-[#8f3c71] px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white">
+            <div className="rounded-lg bg-gradient-to-r from-[#4b1f42] to-[#8f3c71] px-4 py-2 text-xs font-bold uppercase tracking-[0.1em] text-white sm:py-3 sm:text-sm">
               Toplam: {total} TL
             </div>
           </div>
@@ -88,12 +88,12 @@ export default async function CartPage({
 
         {rows.length > 0 ? (
           <section className="grid gap-6 lg:grid-cols-[1fr_320px]">
-            <div className="mag-card rounded-3xl p-5">
+            <div className="mag-card rounded-3xl p-4 sm:p-5">
               <div className="space-y-4">
                 {rows.map((row) => (
                   <article
                     key={row.product.id}
-                    className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-zinc-100 bg-white/80 p-4"
+                    className="flex flex-col gap-3 rounded-2xl border border-zinc-100 bg-white/80 p-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between"
                   >
                     <div>
                       <h2 className="text-base font-bold text-zinc-900">
@@ -107,7 +107,7 @@ export default async function CartPage({
                           : ""}
                       </p>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <form method="post" action="/api/cart/update">
                         <input type="hidden" name="productId" value={row.product.id} />
                         <input type="hidden" name="action" value="dec" />
@@ -125,7 +125,7 @@ export default async function CartPage({
                           +
                         </button>
                       </form>
-                      <form method="post" action="/api/cart/update" className="ml-2">
+                      <form method="post" action="/api/cart/update" className="sm:ml-2">
                         <input type="hidden" name="productId" value={row.product.id} />
                         <input type="hidden" name="action" value="remove" />
                         <button className="ui-click rounded-lg border border-rose-200 px-3 py-1.5 text-xs font-semibold text-rose-700 hover:bg-rose-50">
@@ -133,7 +133,7 @@ export default async function CartPage({
                         </button>
                       </form>
                     </div>
-                    <p className="text-sm font-black text-zinc-900">{row.subtotal} TL</p>
+                    <p className="self-end text-sm font-black text-zinc-900 sm:self-auto">{row.subtotal} TL</p>
                   </article>
                 ))}
               </div>

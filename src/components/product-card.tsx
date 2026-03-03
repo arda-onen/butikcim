@@ -28,7 +28,7 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <article className="group overflow-hidden rounded-3xl border border-white/90 bg-white/90 shadow-xl shadow-zinc-300/30 transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
       <div
-        className={`relative h-[23rem] overflow-hidden bg-gradient-to-br ${colorFrom} ${colorTo} p-4`}
+        className={`relative h-80 overflow-hidden bg-gradient-to-br ${colorFrom} ${colorTo} p-4 sm:h-[23rem]`}
       >
         {product.imageUrl ? (
           <Image
@@ -50,7 +50,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </span>
           ) : null}
         </div>
-        <div className="absolute bottom-4 left-4 right-4 z-10 opacity-0 transition duration-300 group-hover:opacity-100">
+        <div className="absolute bottom-4 left-4 right-4 z-10 opacity-100 transition duration-300 sm:opacity-0 sm:group-hover:opacity-100">
           <Link
             href={`/urunler/${product.id}`}
             className="ui-click block rounded-xl bg-white/95 px-3 py-2 text-center text-xs font-bold uppercase tracking-[0.14em] text-zinc-900"
