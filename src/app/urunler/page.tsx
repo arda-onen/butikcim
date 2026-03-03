@@ -42,17 +42,17 @@ export default async function ProductsPage({
     <div className="min-h-screen">
       <Navbar />
 
-      <main className="mx-auto w-full max-w-[1320px] space-y-6 px-4 py-8 sm:space-y-8 sm:px-6 sm:py-10">
-        <section className="mag-card rounded-3xl p-5 sm:p-6">
+      <main className="mx-auto w-full max-w-[1320px] space-y-5 px-4 py-6 sm:space-y-8 sm:px-6 sm:py-10">
+        <section className="mag-card rounded-3xl p-4 sm:p-6">
           <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
             <div>
               <p className="mag-heading text-xs font-semibold uppercase tracking-[0.2em] text-[#8d6581]">
                 Butikcim Woman
               </p>
-              <h1 className="mag-heading mt-1 text-3xl font-bold text-zinc-900 sm:text-5xl">
+              <h1 className="mag-heading mt-1 text-2xl font-bold text-zinc-900 sm:text-5xl">
                 Kadın Koleksiyonu
               </h1>
-              <p className="mt-2 text-sm text-[#5f5368]">
+              <p className="mt-2 text-xs text-[#5f5368] sm:text-sm">
                 Arama, kategori ve indirim filtresiyle stiline uygun parçayı hızla seç.
               </p>
             </div>
@@ -62,11 +62,11 @@ export default async function ProductsPage({
           </div>
         </section>
 
-        <section className="mag-card rounded-3xl p-4 sm:p-5">
+        <section className="mag-card rounded-3xl p-3.5 sm:p-5">
           <form
             method="get"
             action="/urunler"
-            className="grid gap-3 md:grid-cols-[1.4fr_1fr_1fr_auto_auto]"
+            className="grid gap-2.5 md:grid-cols-[1.4fr_1fr_1fr_auto_auto]"
           >
             <label className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">
               Ürün Ara
@@ -133,7 +133,7 @@ export default async function ProductsPage({
 
         {womenProducts.length > 0 ? (
           filteredProducts.length > 0 ? (
-            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-3.5 sm:gap-4 md:grid-cols-2 xl:grid-cols-3">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
