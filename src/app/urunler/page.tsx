@@ -44,19 +44,11 @@ export default async function ProductsPage({
 
       <main className="mx-auto w-full max-w-[1320px] space-y-4 px-4 py-5 sm:space-y-8 sm:px-6 sm:py-10">
         <section className="mag-card rounded-2xl p-3.5 sm:rounded-3xl sm:p-6">
-          <div className="grid gap-2.5 md:grid-cols-[1fr_auto] md:items-center">
-            <div>
-              <p className="mag-heading text-[10px] font-semibold uppercase tracking-[0.14em] text-[#8d6581] sm:text-xs sm:tracking-[0.2em]">
-                Butikcim Woman
-              </p>
-              <h1 className="mag-heading mt-0.5 text-xl font-bold text-zinc-900 sm:mt-1 sm:text-5xl">
-                Kadın Koleksiyonu
-              </h1>
-              <p className="mt-1 hidden text-xs text-[#5f5368] sm:block sm:text-sm">
-                Arama, kategori ve indirim filtresiyle stiline uygun parçayı hızla seç.
-              </p>
-            </div>
-            <div className="w-fit rounded-lg bg-gradient-to-r from-[#59254d] to-[#8f3c71] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-white sm:rounded-xl sm:px-4 sm:py-3 sm:text-sm sm:tracking-[0.12em]">
+          <div className="flex items-center justify-between gap-2">
+            <h1 className="mag-heading text-lg font-bold text-zinc-900 sm:text-5xl">
+              Kadın Koleksiyonu
+            </h1>
+            <div className="w-fit whitespace-nowrap rounded-lg bg-gradient-to-r from-[#59254d] to-[#8f3c71] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-white sm:rounded-xl sm:px-4 sm:py-3 sm:text-sm sm:tracking-[0.12em]">
               {filteredProducts.length} ürün listelendi
             </div>
           </div>
@@ -66,9 +58,9 @@ export default async function ProductsPage({
           <form
             method="get"
             action="/urunler"
-            className="grid gap-2 md:grid-cols-[1.4fr_1fr_1fr_auto_auto]"
+            className="grid grid-cols-2 gap-2 md:grid-cols-[1.4fr_1fr_1fr_auto_auto]"
           >
-            <label className="text-[11px] font-semibold uppercase tracking-[0.1em] text-zinc-500 sm:text-xs sm:tracking-[0.14em]">
+            <label className="col-span-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-zinc-500 sm:text-xs sm:tracking-[0.14em] md:col-span-1">
               Ürün Ara
               <input
                 name="q"
@@ -106,7 +98,7 @@ export default async function ProductsPage({
               </select>
             </label>
 
-            <div className="grid grid-cols-2 gap-2 md:contents">
+            <div className="col-span-2 grid grid-cols-2 gap-2 md:contents">
               <button
                 type="submit"
                 className="ui-click rounded-lg bg-[#2f1931] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#b54486] sm:rounded-xl sm:px-4 sm:py-2 sm:text-sm md:self-end"
