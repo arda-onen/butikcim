@@ -1,8 +1,6 @@
-import { mkdir, writeFile } from "node:fs/promises";
-import path from "node:path";
-import { randomUUID } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { ADMIN_COOKIE_NAME, verifySessionToken } from "@/lib/admin-auth";
+import { toImageDataUrl } from "@/lib/image-upload";
 import { prisma } from "@/lib/prisma";
 
 const MAX_IMAGE_SIZE_BYTES = 4 * 1024 * 1024;
@@ -14,14 +12,6 @@ const ALLOWED_REDIRECT_PREFIXES = [
 
 function sanitizeText(value: FormDataEntryValue | null) {
   return String(value ?? "").trim();
-}
-
-function getFileExtension(fileName: string) {
-  const ext = path.extname(fileName || "").toLowerCase();
-  if ([".jpg", ".jpeg", ".png", ".webp"].includes(ext)) {
-    return ext;
-  }
-  return ".jpg";
 }
 
 function resolveRedirectPath(value: FormDataEntryValue | null, fallback: string) {
@@ -57,14 +47,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.redirect(new URL(`${redirectPath}?error=category_size`, request.url), 302);
     }
 
-    const ext = getFileExtension(image.name);
-    const fileName = `${Date.now()}-${randomUUID()}${ext}`;
-    const uploadDir = path.join(process.cwd(), "public", "uploads", "categories");
-    const uploadPath = path.join(uploadDir, fileName);
-    const bytes = await image.arrayBuffer();
-    await mkdir(uploadDir, { recursive: true });
-    await writeFile(uploadPath, Buffer.from(bytes));
-    imageUrl = `/uploads/categories/${fileName}`;
+    imageUrl = await toImageDataUrl(image);
+    if (!imageUrl) {
+      return NextResponse.redirect(new URL(`${redirectPath}?error=category_form`, request.url), 302);
+    }
   }
 
   try {
