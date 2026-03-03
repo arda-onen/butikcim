@@ -147,7 +147,7 @@ export default async function Home() {
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-200 via-fuchsia-200 to-violet-200" />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#f6ebf5]/10 via-[#f6ebf5]/20 to-[#f6ebf5]/80 md:hidden" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#f6ebf5]/5 to-[#f6ebf5]/25 md:hidden" />
               </div>
             </div>
           </div>
