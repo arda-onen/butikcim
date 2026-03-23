@@ -1,13 +1,16 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 
 type MobileNavMenuProps = {
   links: Array<{ href: string; label: string }>;
   className?: string;
+  /** Extra block below main links (e.g. auth / çıkış) */
+  footer?: ReactNode;
 };
 
-export function MobileNavMenu({ links, className }: MobileNavMenuProps) {
+export function MobileNavMenu({ links, className, footer }: MobileNavMenuProps) {
   return (
     <details className={`relative md:hidden ${className ?? ""}`}>
       <summary className="ui-click relative inline-flex h-10 w-10 list-none items-center justify-center rounded-xl border border-zinc-200 bg-white/90 text-zinc-700 shadow-sm marker:content-[''] hover:border-zinc-300 hover:text-[#b54486]">
@@ -28,6 +31,9 @@ export function MobileNavMenu({ links, className }: MobileNavMenuProps) {
             </Link>
           ))}
         </nav>
+        {footer ? (
+          <div className="mt-2 border-t border-zinc-100 pt-2">{footer}</div>
+        ) : null}
       </div>
     </details>
   );

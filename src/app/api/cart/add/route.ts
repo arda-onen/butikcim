@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { safeAuthReturnTo } from "@/lib/auth-redirect";
 import {
   CART_COOKIE_NAME,
   parseCartCookie,
@@ -7,6 +8,7 @@ import {
 } from "@/lib/cart";
 import { sanitizeCartItems } from "@/lib/cart-cleanup";
 import { prisma } from "@/lib/prisma";
+import { getCustomerFromRequest, redirectToCustomerLogin } from "@/lib/require-customer";
 
 function parsePositiveInt(value: FormDataEntryValue | null) {
   const num = Number(value);
@@ -20,7 +22,15 @@ export async function POST(request: NextRequest) {
   const formData = await request.formData();
   const productId = parsePositiveInt(formData.get("productId"));
   const quantity = parsePositiveInt(formData.get("quantity")) ?? 1;
-  const returnTo = String(formData.get("returnTo") ?? "/sepetim");
+  const returnTo = safeAuthReturnTo(
+    request.url,
+    String(formData.get("returnTo") ?? "/sepetim"),
+  );
+
+  const customer = getCustomerFromRequest(request);
+  if (!customer) {
+    return redirectToCustomerLogin(request, returnTo);
+  }
 
   if (!productId) {
     return NextResponse.redirect(new URL("/urunler", request.url), 302);

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { cookies } from "next/headers";
 import { CART_COOKIE_NAME, parseCartCookie } from "@/lib/cart";
+import { CUSTOMER_COOKIE_NAME, verifyCustomerSessionToken } from "@/lib/customer-auth";
 import { prisma } from "@/lib/prisma";
 import { getDiscountedPrice } from "@/lib/pricing";
 import { MobileNavMenu } from "@/components/mobile-nav-menu";
@@ -16,6 +17,9 @@ const links = [
 
 export async function Navbar() {
   const cookieStore = await cookies();
+  const customerSession = verifyCustomerSessionToken(
+    cookieStore.get(CUSTOMER_COOKIE_NAME)?.value,
+  );
   const cartItems = parseCartCookie(cookieStore.get(CART_COOKIE_NAME)?.value);
   const ids = cartItems.map((item) => item.productId);
   const previewProducts = ids.length
@@ -51,7 +55,40 @@ export async function Navbar() {
       <nav className="border-b border-white/80 bg-white/75 backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between px-4 py-4 sm:px-6">
           <div className="flex items-center gap-2">
-            <MobileNavMenu links={links} />
+            <MobileNavMenu
+              links={links}
+              footer={
+                customerSession ? (
+                  <div className="space-y-2 px-2 pb-1">
+                    <p className="truncate text-xs text-zinc-500">{customerSession.email}</p>
+                    <form method="post" action="/api/auth/logout">
+                      <input type="hidden" name="returnTo" value="/" />
+                      <button
+                        type="submit"
+                        className="ui-click w-full rounded-lg border border-zinc-200 px-3 py-2 text-left text-sm font-semibold text-zinc-700 hover:bg-zinc-100"
+                      >
+                        Çıkış Yap
+                      </button>
+                    </form>
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-1 px-2 pb-1">
+                    <Link
+                      href="/giris-yap"
+                      className="ui-click rounded-lg px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 hover:text-[#b54486]"
+                    >
+                      Giriş Yap
+                    </Link>
+                    <Link
+                      href="/uye-ol"
+                      className="ui-click rounded-lg px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 hover:text-[#b54486]"
+                    >
+                      Üye Ol
+                    </Link>
+                  </div>
+                )
+              }
+            />
             <Link href="/" className="ui-click">
               <p className="mag-heading text-[9px] font-bold uppercase tracking-[0.18em] text-[#8d6581] sm:text-[11px] sm:tracking-[0.24em]">
                 Butikcim Woman
@@ -76,6 +113,39 @@ export async function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2.5">
+            <div className="hidden items-center gap-3 md:flex">
+              {customerSession ? (
+                <>
+                  <span className="max-w-[140px] truncate text-xs font-medium text-zinc-600 lg:max-w-[200px]">
+                    {customerSession.email}
+                  </span>
+                  <form method="post" action="/api/auth/logout">
+                    <input type="hidden" name="returnTo" value="/" />
+                    <button
+                      type="submit"
+                      className="ui-click text-xs font-bold uppercase tracking-[0.12em] text-zinc-600 hover:text-[#b54486]"
+                    >
+                      Çıkış
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/giris-yap"
+                    className="ui-click text-xs font-bold uppercase tracking-[0.12em] text-zinc-700 hover:text-[#b54486]"
+                  >
+                    Giriş Yap
+                  </Link>
+                  <Link
+                    href="/uye-ol"
+                    className="ui-click text-xs font-bold uppercase tracking-[0.12em] text-[#b54486] hover:underline"
+                  >
+                    Üye Ol
+                  </Link>
+                </>
+              )}
+            </div>
             <SearchMenu />
             <div className="group relative hidden md:block">
               <IconButton

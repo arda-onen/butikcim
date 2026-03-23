@@ -1,14 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { CART_COOKIE_NAME, parseCartCookie, serializeCartCookie } from "@/lib/cart";
 import { sanitizeCartItems } from "@/lib/cart-cleanup";
-
-function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+import { isValidCustomerEmail } from "@/lib/customer-auth";
+import { getCustomerFromRequest, redirectToCustomerLogin } from "@/lib/require-customer";
 
 export async function POST(request: NextRequest) {
-  const formData = await request.formData();
-  const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  const customer = getCustomerFromRequest(request);
+  if (!customer) {
+    return redirectToCustomerLogin(request, "/sepetim");
+  }
+
+  const email = customer.email.trim().toLowerCase();
   const parsedCart = parseCartCookie(request.cookies.get(CART_COOKIE_NAME)?.value);
   const cartItems = await sanitizeCartItems(parsedCart);
 
@@ -26,7 +28,7 @@ export async function POST(request: NextRequest) {
     return response;
   }
 
-  if (!isValidEmail(email)) {
+  if (!isValidCustomerEmail(email)) {
     return redirectWithCart(new URL("/sepetim?error=email", request.url));
   }
 

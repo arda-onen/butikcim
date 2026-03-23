@@ -14,6 +14,10 @@ function now() {
   return Date.now();
 }
 
+function namespacedKey(namespace: string, ip: string) {
+  return `${namespace}:${ip}`;
+}
+
 function pruneExpiredEntries(currentTime: number) {
   for (const [ip, entry] of attemptsByIp) {
     if (entry.lockUntil && entry.lockUntil > currentTime) {
@@ -26,11 +30,12 @@ function pruneExpiredEntries(currentTime: number) {
   }
 }
 
-export function checkLoginAllowed(ip: string) {
+export function checkLoginAllowed(ip: string, namespace = "admin") {
   const currentTime = now();
   pruneExpiredEntries(currentTime);
 
-  const entry = attemptsByIp.get(ip);
+  const key = namespacedKey(namespace, ip);
+  const entry = attemptsByIp.get(key);
   if (!entry) {
     return { allowed: true as const };
   }
@@ -43,12 +48,13 @@ export function checkLoginAllowed(ip: string) {
   return { allowed: true as const };
 }
 
-export function recordFailedAttempt(ip: string) {
+export function recordFailedAttempt(ip: string, namespace = "admin") {
   const currentTime = now();
-  const entry = attemptsByIp.get(ip);
+  const key = namespacedKey(namespace, ip);
+  const entry = attemptsByIp.get(key);
 
   if (!entry || currentTime - entry.firstAttemptAt > WINDOW_MS) {
-    attemptsByIp.set(ip, { attempts: 1, firstAttemptAt: currentTime });
+    attemptsByIp.set(key, { attempts: 1, firstAttemptAt: currentTime });
     return;
   }
 
@@ -59,9 +65,9 @@ export function recordFailedAttempt(ip: string) {
     next.lockUntil = currentTime + LOCK_MS;
   }
 
-  attemptsByIp.set(ip, next);
+  attemptsByIp.set(key, next);
 }
 
-export function clearFailedAttempts(ip: string) {
-  attemptsByIp.delete(ip);
+export function clearFailedAttempts(ip: string, namespace = "admin") {
+  attemptsByIp.delete(namespacedKey(namespace, ip));
 }

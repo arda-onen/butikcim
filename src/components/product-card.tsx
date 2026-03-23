@@ -103,7 +103,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <form method="post" action="/api/cart/add">
             <input type="hidden" name="productId" value={product.id} />
             <input type="hidden" name="quantity" value="1" />
-            <input type="hidden" name="returnTo" value="/sepetim" />
+            <input type="hidden" name="returnTo" value={`/urunler/${product.id}`} />
             <button className="ui-click rounded-xl bg-[#2f1931] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-white transition hover:bg-[#b54486] sm:px-3.5 sm:text-[11px] sm:tracking-[0.14em]">
               Sepete Ekle
             </button>

@@ -39,5 +39,13 @@ Set these environment variables in Vercel:
 - `ADMIN_EMAIL`
 - `ADMIN_PASSWORD`
 - `ADMIN_SESSION_SECRET`
+- `USER_SESSION_SECRET` — müşteri girişi için HMAC anahtarı; production’da **en az 32 karakter** rastgele değer (admin ile **farklı** olsun)
+
+### Müşteri üyeliği
+
+- **Üye ol:** `/uye-ol` — şifre bcrypt ile saklanır (maliyet faktörü 12).
+- **Giriş yap:** `/giris-yap` — httpOnly, `sameSite=lax`, production’da `secure` çerez.
+- Sepete ekleme, sepet güncelleme, sepet sayfası ve ödeme yalnızca giriş yapmış kullanıcılar içindir; ödeme e-postası hesaptan alınır.
+- Giriş ve kayıt için IP bazlı hız sınırı (çoklu hatalı denemede geçici kilit) `src/lib/login-rate-limit.ts` içindedir.
 
 Then deploy normally. The build script runs `prisma db push` automatically before `next build` so tables are created/updated on the target database.

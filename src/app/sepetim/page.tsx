@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { Navbar } from "@/components/navbar";
 import { CART_COOKIE_NAME, parseCartCookie } from "@/lib/cart";
+import { CUSTOMER_COOKIE_NAME, verifyCustomerSessionToken } from "@/lib/customer-auth";
 import { prisma } from "@/lib/prisma";
 import { getDiscountedPrice } from "@/lib/pricing";
 
@@ -17,6 +19,13 @@ export default async function CartPage({
 }) {
   const params = await searchParams;
   const cookieStore = await cookies();
+  const customerSession = verifyCustomerSessionToken(
+    cookieStore.get(CUSTOMER_COOKIE_NAME)?.value,
+  );
+  if (!customerSession) {
+    redirect(`/giris-yap?returnTo=${encodeURIComponent("/sepetim")}`);
+  }
+
   const cartItems = parseCartCookie(cookieStore.get(CART_COOKIE_NAME)?.value);
   const ids = cartItems.map((item) => item.productId);
   const products = ids.length
@@ -71,7 +80,7 @@ export default async function CartPage({
           ) : null}
           {params.error === "email" ? (
             <p className="mt-3 text-sm font-semibold text-rose-600">
-              Ödemeye geçmek için geçerli bir e-posta gir.
+              Hesap e-postası geçersiz görünüyor. Destek ile iletişime geçin.
             </p>
           ) : null}
           {params.error === "empty" ? (
@@ -142,17 +151,15 @@ export default async function CartPage({
             <aside className="mag-card rounded-3xl p-5">
               <h3 className="mag-heading text-2xl font-bold text-zinc-900">Ödeme Özeti</h3>
               <p className="mt-2 text-sm text-zinc-500">
-                Hesap gerekmez. iyzico ödeme için sadece e-posta girmen yeterli.
+                Ödeme, hesabınızdaki e-posta ile iyzico üzerinden güvenli şekilde
+                tamamlanır.
+              </p>
+              <p className="mt-3 rounded-xl border border-zinc-200 bg-zinc-50 px-3 py-2 text-xs text-zinc-600">
+                <span className="font-semibold text-zinc-800">Hesap e-postası:</span>{" "}
+                {customerSession.email}
               </p>
               <p className="mt-4 text-2xl font-black text-zinc-900">{total} TL</p>
               <form method="post" action="/api/cart/checkout" className="mt-4 space-y-3">
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="E-posta adresin"
-                  className="w-full rounded-xl border border-zinc-300 px-3 py-2 text-sm outline-none ring-rose-200 focus:ring"
-                />
                 <button className="ui-click w-full rounded-xl bg-[#2f1931] px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white hover:bg-[#b54486]">
                   Ödemeye Geç (iyzico)
                 </button>

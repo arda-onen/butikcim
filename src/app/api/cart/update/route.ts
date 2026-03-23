@@ -7,6 +7,7 @@ import {
 } from "@/lib/cart";
 import { sanitizeCartItems } from "@/lib/cart-cleanup";
 import { prisma } from "@/lib/prisma";
+import { getCustomerFromRequest, redirectToCustomerLogin } from "@/lib/require-customer";
 
 function parsePositiveInt(value: FormDataEntryValue | null) {
   const num = Number(value);
@@ -20,6 +21,11 @@ export async function POST(request: NextRequest) {
   const formData = await request.formData();
   const productId = parsePositiveInt(formData.get("productId"));
   const action = String(formData.get("action") ?? "");
+
+  const customer = getCustomerFromRequest(request);
+  if (!customer) {
+    return redirectToCustomerLogin(request, "/sepetim");
+  }
 
   if (!productId) {
     return NextResponse.redirect(new URL("/sepetim", request.url), 302);

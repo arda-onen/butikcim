@@ -112,7 +112,7 @@ export default async function ProductDetailPage({
               <form method="post" action="/api/cart/add">
                 <input type="hidden" name="productId" value={product.id} />
                 <input type="hidden" name="quantity" value="1" />
-                <input type="hidden" name="returnTo" value="/sepetim" />
+                <input type="hidden" name="returnTo" value={`/urunler/${product.id}`} />
                 <button className="ui-click w-full rounded-xl bg-[#2f1931] px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white hover:bg-[#b54486] sm:w-auto">
                   Sepete Ekle
                 </button>

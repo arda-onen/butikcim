@@ -5,23 +5,12 @@ import {
   getSessionTtlSeconds,
   verifyAdminCredentials,
 } from "@/lib/admin-auth";
+import { getClientIp } from "@/lib/client-ip";
 import {
   checkLoginAllowed,
   clearFailedAttempts,
   recordFailedAttempt,
 } from "@/lib/login-rate-limit";
-
-function getClientIp(request: Request) {
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) {
-    return forwarded.split(",")[0].trim();
-  }
-  return (
-    request.headers.get("x-real-ip") ??
-    request.headers.get("cf-connecting-ip") ??
-    "unknown"
-  );
-}
 
 export async function POST(request: Request) {
   const formData = await request.formData();
